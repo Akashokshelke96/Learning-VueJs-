@@ -1,0 +1,62 @@
+<template>
+    <div>
+        <h1>
+            Enter your Login Details here!
+        </h1>
+        <p v-if="error.length>0">
+            <b>
+                Please correct the following Errors
+            </b>
+            <ul>
+                <li v-for="e in error" v-bind:key="e.id">
+                    {{e}}
+                </li>
+            </ul>
+        </p>
+       
+        <form @submit="login">
+       <input type="text" v-model="name" placeholder="Enter your Username" ><br><br>
+       <input type="password" v-model="password" placeholder="Enter your Passwrod"><br><br><br>
+       <button type="submit" >
+        Login
+       </button>
+        </form>
+
+       
+    </div>
+    
+    
+</template>
+
+<script>
+export default {
+    name:'LoginComponent',
+    data(){
+            return{
+                 error:[],
+                 name:null,
+                 password:null,
+                }
+            },
+
+    methods:{
+        login(e){
+            this.error = [];
+            if(this.name && this.password){
+                console.warn("No Errors")
+            }
+            if(!this.name){
+                this.error.push("Username is required!!")
+            }
+            if(!this.password){
+                this.error.push("Password is required!!")
+                
+            }
+            console.warn("loginData",this.error);
+            e.preventDefault();
+            
+        },
+    },
+       
+        }
+</script>
