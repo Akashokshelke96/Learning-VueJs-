@@ -1,0 +1,22 @@
+<template>
+    <div class="products">
+    <h1>Products Component</h1>
+
+</div>
+</template>
+
+<script>
+export default {
+    name:'ProductsComponent',
+}
+</script>
+
+<style scoped>
+.products{
+    background-color: bisque;
+    height: 100px;
+    width: 300px;
+    padding:30px;
+    margin-top: 20px;
+}
+</style>
